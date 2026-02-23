@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ElectroShop - Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="main-body">
+
+<header>
+    <h1>ElectroShop</h1>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="checkout.html">Cart</a>
+    </nav>
+</header>
+
+<section class="cart-section">
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <ul id="cartItems"></ul>
+        <h3 id="totalPrice"></h3>
+
+        <button class="checkout-btn" onclick="placeOrder()">
+            Place Order
+        </button>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

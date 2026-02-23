@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ElectroShop - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+
+<div class="login-container">
+    <h1>ElectroShop</h1>
+    <p class="tagline">Premium Electronics Store</p>
+
+    <form onsubmit="return loginUser()">
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+function loginUser() {
+    window.location.href = "home.html";
+    return false;
+}
+</script>
+
+</body>
+</html>

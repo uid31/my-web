@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* LOGIN PAGE */
+.login-body {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 340px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background: #1f1c2c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+/* MAIN BACKGROUND */
+.main-body {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+/* PRODUCTS */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.product img {
+    width: 100%;
+    height: auto; /* maintains original aspect ratio */
+    border-radius: 10px;
+}
+
+.product button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #1f1c2c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* CART */
+.cart-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.cart-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 500px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+#cartItems {
+    list-style: none;
+    padding: 0;
+}
+
+#cartItems li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.remove-btn {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #1f1c2c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
