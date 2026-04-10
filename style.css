@@ -22,11 +22,12 @@ body {
 }
 
 .login-container input {
-    width: 100%;
+    width: 90%;
     padding: 12px;
     margin: 10px 0;
     border-radius: 8px;
     border: 1px solid #ddd;
+    box-sizing: border-box;
 }
 
 .login-container button {
@@ -36,6 +37,9 @@ body {
     color: white;
     border: none;
     border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
 }
 
 /* MAIN BACKGROUND */
@@ -48,15 +52,67 @@ body {
 header {
     background: rgba(0,0,0,0.6);
     color: white;
-    padding: 15px;
-    text-align: center;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(8px);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+/* NAV BUBBLE BUTTONS */
+nav {
+    display: flex;
+    gap: 12px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 8px 22px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.25s, border-color 0.25s, transform 0.15s;
+    backdrop-filter: blur(4px);
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+nav a.active {
+    background: white;
+    color: #1f1c2c;
+    border-color: white;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 40px;
+    padding: 60px 40px 30px;
     color: white;
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
 }
 
 /* PRODUCTS */
@@ -70,27 +126,59 @@ header {
 
 .product {
     background: white;
-    padding: 20px;
+    padding: 16px;
     border-radius: 15px;
-    width: 250px;
+    width: 220px;
     text-align: center;
     box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.3);
 }
 
 .product img {
     width: 100%;
-    height: auto; /* maintains original aspect ratio */
+    height: 180px;
+    object-fit: contain;
     border-radius: 10px;
+    background: #f8f8f8;
+}
+
+.product h3 {
+    margin: 12px 0 4px;
+}
+
+.product p {
+    color: #555;
+    font-weight: 600;
+    margin: 4px 0 10px;
 }
 
 .product button {
     margin-top: 10px;
-    padding: 10px;
+    padding: 10px 20px;
     background: #1f1c2c;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 50px;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.15s;
+    width: 100%;
+}
+
+.product button:hover {
+    background: #3a3555;
+    transform: translateY(-1px);
 }
 
 /* CART */
@@ -116,6 +204,7 @@ header {
 #cartItems li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 0;
     border-bottom: 1px solid #eee;
 }
@@ -124,9 +213,16 @@ header {
     background: crimson;
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 5px 12px;
+    border-radius: 50px;
     cursor: pointer;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+}
+
+.remove-btn:hover {
+    background: #a00020;
 }
 
 .checkout-btn {
@@ -136,6 +232,126 @@ header {
     background: #1f1c2c;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.checkout-btn:hover {
+    background: #3a3555;
+    transform: translateY(-2px);
+}
+
+/* PICKUP SECTION */
+.pickup-section {
+    margin-top: 28px;
+    border-top: 2px solid #eee;
+    padding-top: 22px;
+}
+
+.pickup-section h3 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    color: #1f1c2c;
+}
+
+.pickup-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #f4f0ff;
+    border-left: 4px solid #928dab;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 12px;
+}
+
+.pickup-notice .pickup-icon {
+    font-size: 26px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.pickup-notice p {
+    margin: 0;
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.pickup-notice p strong {
+    color: #1f1c2c;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.pickup-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pickup-fields input,
+.pickup-fields select {
+    padding: 11px 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.pickup-fields input:focus,
+.pickup-fields select:focus {
+    border-color: #928dab;
+}
+
+/* CUSTOM TOAST NOTIFICATION */
+#toast-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.35);
+}
+
+#toast-overlay.show {
+    display: flex;
+}
+
+.toast-box {
+    background: #1f1c2c;
+    color: white;
+    padding: 28px 48px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    animation: toastPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: 90vw;
+    line-height: 1.5;
+}
+
+.toast-box .toast-icon {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+@keyframes toastPop {
+    from { transform: scale(0.7); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
 }
