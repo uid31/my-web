@@ -52,7 +52,13 @@ function displayCart() {
         total += group.price * group.count;
     });
 
-    document.getElementById("totalPrice").textContent = "Total: $" + total;
+    document.getElementById("totalPrice").textContent = cart.length > 0 ? "Total: $" + total : "";
+
+    // Show empty cart message if needed
+    if (cart.length === 0 && cartItems) {
+        cartItems.innerHTML = '<li style="justify-content:center; color:rgba(255,255,255,0.4); font-size:14px; padding:20px 0; border:none;">Your cart is empty</li>';
+        document.getElementById("totalPrice").textContent = "";
+    }
 }
 
 function increaseItem(product, price) {
@@ -140,8 +146,8 @@ function placeOrder() {
         <div style="font-size:11px; opacity:0.45; margin-top:12px;">Please bring a valid ID when picking up your order</div>
     `;
 
-    localStorage.removeItem("cart");
     cart = [];
+    localStorage.setItem("cart", JSON.stringify([]));
 
     showToast(confirmationHTML, 6000, false);
 
