@@ -1,13 +1,19 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Custom toast
-function showToast(htmlContent, duration = 2200) {
+function closeToast() {
+    document.getElementById("toast-overlay").classList.remove("show");
+}
+
+function showToast(htmlContent, duration = 2200, autoClose = true) {
     let overlay = document.getElementById("toast-overlay");
     let box = document.getElementById("toast-box");
     if (!overlay) return;
     box.innerHTML = htmlContent;
     overlay.classList.add("show");
-    setTimeout(() => overlay.classList.remove("show"), duration);
+    if (autoClose) {
+        setTimeout(() => overlay.classList.remove("show"), duration);
+    }
 }
 
 function addToCart(product, price) {
@@ -73,6 +79,35 @@ function removeAll(product) {
 }
 
 function placeOrder() {
+    // Check if cart is empty
+    if (cart.length === 0) {
+        showToast('<span class="toast-icon">🛒</span>Your cart is empty!<br><span style="font-size:13px;opacity:0.6;">Add some products before placing an order.</span>', 2200, true);
+        return false;
+    }
+
+    // Validate all required fields
+    const name = document.querySelector('.pickup-fields input[type="text"]');
+    const phone = document.querySelector('.pickup-fields input[type="tel"]');
+    const location = document.querySelector('.pickup-fields select');
+
+    if (!name || !name.value.trim()) {
+        name.focus();
+        name.style.borderColor = '#ff6b6b';
+        setTimeout(() => name.style.borderColor = '', 2000);
+        return false;
+    }
+    if (!phone || !phone.value.trim()) {
+        phone.focus();
+        phone.style.borderColor = '#ff6b6b';
+        setTimeout(() => phone.style.borderColor = '', 2000);
+        return false;
+    }
+    if (!location || !location.value) {
+        location.style.borderColor = '#ff6b6b';
+        setTimeout(() => location.style.borderColor = '', 2000);
+        return false;
+    }
+
     // Generate order details
     const orderNum = "ES-" + Math.floor(100000 + Math.random() * 900000);
     const locations = ["Lulu Mall", "Fujairah Mall", "Century Mall"];
@@ -89,6 +124,7 @@ function placeOrder() {
     const timeSlot = times[Math.floor(Math.random() * times.length)];
 
     const confirmationHTML = `
+        <button onclick="closeToast(); setTimeout(()=>{ window.location.href='home.html'; }, 200);" style="position:absolute;top:14px;right:18px;background:none;border:none;color:rgba(255,255,255,0.5);font-size:22px;cursor:pointer;line-height:1;padding:0;z-index:10;">✕</button>
         <span class="toast-icon">✅</span>
         <div style="font-family:'Orbitron',sans-serif; font-size:15px; letter-spacing:1px; margin-bottom:10px;">Order Confirmed!</div>
         <div style="font-size:13px; opacity:0.9; margin-bottom:14px;">
@@ -107,11 +143,9 @@ function placeOrder() {
     localStorage.removeItem("cart");
     cart = [];
 
-    showToast(confirmationHTML, 6000);
+    showToast(confirmationHTML, 6000, false);
 
-    setTimeout(() => {
-        window.location.href = "home.html";
-    }, 6200);
+
 
     return false;
 }

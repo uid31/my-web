@@ -553,6 +553,7 @@ nav a.active {
 
 #toast-overlay.show {
     display: flex;
+    pointer-events: all;
 }
 
 .toast-box {
@@ -571,6 +572,7 @@ nav a.active {
     max-width: 500px;
     width: 90vw;
     line-height: 1.6;
+    position: relative;
 }
 
 .toast-box .toast-icon {

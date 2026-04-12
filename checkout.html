@@ -7,6 +7,11 @@
 </head>
 <body class="main-body">
 
+<!-- Toast Overlay -->
+<div id="toast-overlay">
+    <div class="toast-box" id="toast-box"></div>
+</div>
+
 <header>
     <h1>⚡ ElectroShop</h1>
     <nav>
@@ -35,8 +40,8 @@
 
             <div class="pickup-fields">
                 <input type="text" placeholder="Full Name" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <select>
+                <input type="tel" placeholder="Phone Number" pattern="[0-9+\s\-]{7,15}" required>
+                <select required>
                     <option value="" disabled selected>Select Pickup Location</option>
                     <option>Lulu Mall</option>
                     <option>Fujairah Mall</option>
