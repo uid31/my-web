@@ -3,7 +3,7 @@
 <head>
     <title>ElectroShop - Cart</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body class="main-body">
 
@@ -38,10 +38,26 @@
                 <input type="tel" placeholder="Phone Number" required>
                 <select>
                     <option value="" disabled selected>Select Pickup Location</option>
-                    <option>ElectroShop branch 1- Lulu Mall</option>
-                    <option>ElectroShop branch 2- Fujairah Mall</option>
-                    <option>ElectroShop branch 3- Century Mall</option>
+                    <option>Lulu Mall</option>
+                    <option>Fujairah Mall</option>
+                    <option>Century Mall</option>
                 </select>
+            </div>
+
+            <!-- Payment on Pickup -->
+            <div class="payment-section">
+                <h3>💳 Payment Method</h3>
+                <p class="payment-note">Payment is collected at the time of pickup.</p>
+                <div class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="cash" checked>
+                        <span>💵 Cash</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="card">
+                        <span>💳 Card</span>
+                    </label>
+                </div>
             </div>
         </div>
 
