@@ -71,5 +71,24 @@
 
 </section>
 <script src="script.js"></script>
+
+<!-- Chatbot -->
+<button id="chat-fab" onclick="toggleChat()">💬</button>
+<div id="chat-window">
+    <div class="chat-header">
+        <div class="chat-header-icon">⚡</div>
+        <div class="chat-header-info">
+            <strong>VOLT</strong>
+            <span>● Online — ElectroShop AI</span>
+        </div>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-suggestions"></div>
+    <div class="chat-input-row">
+        <input id="chat-input" type="text" placeholder="Ask me anything..." onkeydown="handleChatKey(event)">
+        <button id="chat-send" onclick="sendMessage()">➤</button>
+    </div>
+</div>
+<script src="chatbot.js"></script>
 </body>
 </html>
